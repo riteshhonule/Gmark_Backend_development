@@ -1,9 +1,75 @@
-//  Convert JavaScript Code → TypeScript
-//  JavaScript Code
+// global execution starts here
 
-// function multiply(a, b) {
-//   return a * b;
-// }
+// var is function scoped
+var company: string = "TechCorp";
+
+// let and const are block scoped
+let year: number = 2025;
+const MAX_USERS: number = 3;
+
+// basic data types
+let name: string = "Ritesh";
+let age: number = 22;
+let isActive: boolean = true;
+let score: null = null;
+let salary: undefined = undefined;
+let id: symbol = Symbol("userId");
+let bigNumber: bigint = 9007199254740991n;
+let skills: string[] = ["JS", "TS"];
+let user: { name: string; age: number } = { name, age };
+
+// normal function with type safety
+function greet(username: string): string {
+  return "Hello " + username;
+}
+
+// arrow function
+const add = (a: number, b: number): number => a + b;
+
+// closure to keep count private
+function userCounter(): () => number {
+  let count: number = 0;
+
+  return function (): number {
+    count++;
+    return count;
+  };
+}
+
+const incrementUser = userCounter();
+
+// promise that returns user data
+function fetchUserData(): Promise<{ id: number; name: string }> {
+  return new Promise((resolve, reject) => {
+    if (isActive) {
+      resolve({ id: 1, name: "Ritesh" });
+    } else {
+      reject("User is inactive");
+    }
+  });
+}
+
+// async function with error handling
+async function main(): Promise<void> {
+  try {
+    console.log(greet(name));
+    console.log("Sum:", add(5, 3));
+
+    console.log("User Count:", incrementUser());
+    console.log("User Count:", incrementUser());
+
+    const data = await fetchUserData();
+    console.log("Fetched User:", data);
+
+  } catch (error: unknown) {
+    console.error("Error:", error);
+  } finally {
+    console.log("Program finished execution");
+  }
+}
+
+main();
+
 
 //  TypeScript Version
 function multiply(a: number, b: number): number {
@@ -57,3 +123,4 @@ async function main(): Promise<void> {
 }
 
 main();
+
