@@ -13,13 +13,13 @@ let isActive: boolean = true;
 let score: null = null;
 let salary: undefined = undefined;
 
-//  bigint removed for ES compatibility
+//  bigint 
 let bigNumber: number = 9007199254740991;
 
 let skills: string[] = ["JS", "TS"];
 let user: { name: string; age: number } = { name: userName, age };
 
-// == FUNCTIONS 
+//  FUNCTIONS 
 
 // normal function
 function greet(username: string): string {
@@ -41,7 +41,7 @@ function userCounter(): () => number {
 
 const incrementUser = userCounter();
 
-// PROMISE =================
+// PROMISE 
 
 function fetchUserData(): Promise<{ id: number; name: string }> {
     return new Promise((resolve, reject) => {
@@ -53,7 +53,7 @@ function fetchUserData(): Promise<{ id: number; name: string }> {
     });
 }
 
-// ================= TYPESCRIPT FUNCTION 
+//  TYPESCRIPT FUNCTION 
 
 function multiply(a: number, b: number): number {
     return a * b;
@@ -138,3 +138,4 @@ Fetched User Data: { id: 1, name: 'Ritesh' }
 Fetched API User: { id: 101, name: 'Ritesh Honule', email: 'ritesh@example.com' }
 Multiplication: 50
 Program finished execution
+
